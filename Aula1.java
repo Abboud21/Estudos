@@ -31,7 +31,10 @@ public class Aula1 {
                         }else if(operador=='*'){
                             System.out.println(n1*n2);
                         }else if(operador=='/'){
-                            System.out.println(n1/n2);
+                           if(n1==0||n2==0){
+                            System.out.println("Indeterminado);
+                           }else{       
+                            System.out.println(n1/n2);}
                         }
             break;
             case 2:   
