@@ -70,8 +70,8 @@ public class Aula1 {
        
         double x1,x2;
         
-        x1=(-b+q)/(2*a);
-        x2=(-b-q)/(2*a);
+        x1=(-b+Math.sqrt(q))/(2*a);
+        x2=(-b-Math.sqrt(q))/(2*a);
         
         System.out.println(x1);
         System.out.println(x2);     
