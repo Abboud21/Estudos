@@ -1,0 +1,28 @@
+programa {
+  funcao inicio() {
+
+    real num1,num2,num3
+
+       escreva("Escreva o 1 numero: ")
+       leia(num1)
+       escreva("Escreva o 2 numero: ")
+       leia(num2)
+       escreva("Escreva o 3 numero: ")
+       leia(num3)
+
+      se(num1<num2 e num1<num3){
+           se(num2<num3){
+           escreva("A ordem crecente e: ",num1,"\t",num2,"\t",num3)}
+          senao{escreva("A ordem crecente e: ",num1,"\t",num3,"\t",num2)}
+      }senao se(num3<num2 e num3<num1){
+           se(num2<num1){
+           escreva("A ordem crecente e: ",num3,"\t",num2,"\t",num1)}
+           senao{escreva("A ordem crecente e: ",num3,"\t",num1,"\t",num2)}      
+      }senao se(num2<num3 e num2<num1){se(num3<num1){
+           escreva("A ordem crecente e: ",num2,"\t",num3,"\t",num1)}
+           senao{ escreva("A ordem crecente e: ",num2,"\t",num1,"\t",num3)}
+          
+      }
+    
+  }
+}
