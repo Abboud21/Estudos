@@ -1,0 +1,41 @@
+Algoritmo "bahskara"
+
+Var
+x,y,z,d,n,m:real
+procedimento delta(a,b,c,calc,x1,x2:real)
+inicio
+ Escreval("o primeiro numero: ")
+ leia(a)
+
+se a = 0 entao
+   escreva("Nao é uma equaçao de segundo grau. ")
+ senao
+   Escreval("o segundo numero: ")
+   leia(b)
+   Escreval("o terceiro numero: ")
+   leia(c)
+
+ calc <- (b * b) - (4 * a * c)
+
+
+ escreval("O resultado de delta é: ", calc)
+ se calc < 0 entao
+ escreval("nao existe raiz real ")
+ senao
+ x1 <- (-b + raizq(calc)) / (2 * a)
+ x2 <- (-b - raizq(calc)) / (2 * a)
+ 
+ escreval("o resultado de x1 é: ", x1:8:3)
+escreval("o resultado de x2 é: ", x2:8:3)
+
+ fimse
+fimse
+
+
+
+fimprocedimento
+inicio
+
+delta(x,y,z,d,n,m)
+
+Fimalgoritmo
