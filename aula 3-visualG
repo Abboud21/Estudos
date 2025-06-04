@@ -1,0 +1,135 @@
+Algoritmo "semnome"
+
+   var
+
+//2
+ //contador,valor,pular:inteiro
+ //---------------------------------------------------------------
+  //1
+ //c:inteiro
+ //---------------------------------------------------------------
+ 
+ //3
+ //x,y,z:inteiro
+ //procedimento par(a,b,c:inteiro)
+ 
+ //inicio
+ 
+
+  //  escreva("Escreva o primeiro numero: ")
+  //  leia(a)
+  //  escreva("Escreva o seguindo numero: ")
+  //  leia(b)
+    
+
+  //  c <- a+b
+
+  //  se(c%2=0)entao
+  //  escreva("O numero e PAR")
+  //  senao
+  //  escreva("O numero e IMPAR")
+  //  fimse
+ 
+ 
+//fimprocedimento
+//----------------------------------------------------------------
+//4
+ //x,y,z,d,n,m:real
+ 
+ //procedimento delta(a,b,c,calc,x1,x2:real)
+ 
+//inicio
+// Escreval("o primeiro numero: ")
+// leia(a)
+
+//se a = 0 entao
+ //  escreva("Nao é uma equaçao de segundo grau. ")
+ //senao
+  // Escreval("o segundo numero: ")
+  // leia(b)
+   //Escreval("o terceiro numero: ")
+   //leia(c)
+
+ //calc <- (b * b) - (4 * a * c)
+
+
+ //escreval("O resultado de delta é: ", calc)
+ //se calc < 0 entao
+ //escreval("nao existe raiz real ")
+ //senao
+ //x1 <- (-b + raizq(calc)) / (2 * a)
+ //x2 <- (-b - raizq(calc)) / (2 * a)
+
+ //escreval("o resultado de x1 é: ", x1:8:3)
+//escreval("o resultado de x2 é: ", x2:8:3)
+
+// fimse
+//fimse
+
+
+
+//fimprocedimento
+//-------------------------------------------------------------
+ //5
+
+ //v1,v2,s:inteiro
+ 
+ //funcao soma(x,y:inteiro):inteiro
+ 
+// inicio
+   //    retorne x + y
+ 
+ 
+ //fimfuncao
+//--------------------------------------------------------------
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+
+
+     //1
+
+    // para c <-1 ate 10 faca
+    //    escreval(c)
+     //fimpara
+  //---------------------------------------------------------------
+    //2
+     
+   // contador <-0
+
+    //escreva("Quer contar ate quanto?")
+    //leia(valor)
+    //escreva("Quer pular de quanto em quanto?")
+    //leia(pular)
+
+    //enquanto (contador<=valor)faca
+
+    //escreval(contador)
+
+    //fimenquanto
+    //-------------------------------------------------------------
+    
+    //3
+    //par(x,y,z)
+
+    
+    
+    //-------------------------------------------------------------
+        //4
+    
+      // delta(x,y,z,d,n,m)
+
+    //-------------------------------------------------------------
+       //5
+       
+       //escreva("Digite o primeiro valor: ")
+       //leia(v1)
+       //escreva("Digite o segundo valor: ")
+       //leia(v2)
+       
+       //s <- soma(v1, v2)
+       //escreval("A soma entre ",v1," e ",v2," e = ",s)
+    
+
+
+Fimalgoritmo
