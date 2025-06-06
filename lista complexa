@@ -8,7 +8,7 @@ public class Aula2 {
         
         Scanner tec =new Scanner(System.in);
         
-         System.out.println("Escolha uma opçao \n1:Bhaskara\n2:Contador");
+         System.out.println("Escolha uma opçao: \n1:Bhaskara\n2:Contador\n3:contar(com para)\n4:piramide");
         
         int lista=tec.nextInt();
         
@@ -82,13 +82,40 @@ public class Aula2 {
                System.out.println("");
            
            }
+           System.out.println("\n");
            //decrecent
            for(int cs=5;cs>=1;cs--){
                for(int ds=1;ds<=cs;ds++){
                    System.out.print(" "); 
                }for(int es=4;es>=cs;es--){
-                   System.out.print("#"); 
-               } System.out.println("*");
+                   System.out.print("*"); 
+               }System.out.println("*");   
+           }
+           System.out.println("\n");
+           
+           //piramid com espasso
+             for(int a1=5;a1>=1;a1--){
+                for(int b1=1;b1<=a1;b1++){
+                    System.out.print(" ");
+                }for(int c1=5;c1>=a1;c1--){
+                 System.out.print("*");
+                 
+                }System.out.print(" ");
+                for(int d1=5;d1>=a1;d1--){
+                    System.out.print("*");}
+                 System.out.print("  ");
+                System.out.println(" ");
+                
+                 
+             
+           }
+               
+           
+           
+           
+           
+           break;
+           
            
            }
            
@@ -98,5 +125,3 @@ public class Aula2 {
         
         
     }
-    
-}
