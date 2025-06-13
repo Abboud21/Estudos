@@ -50,7 +50,7 @@ public class UsuarioDAO {
               pstm = connection.prepareStatement(sql);
               rs = pstm.executeQuery();
               while (rs.next()){
-                  Usuario usuario = new Usuario(0,"","","","");
+                  Usuario usuario = new Usuario();
                   usuario.setId(rs.getInt("id"));
                   usuario.setNome(rs.getString("nome"));
                   usuario.setEmail(rs.getString("email"));
@@ -69,8 +69,33 @@ public class UsuarioDAO {
           return lista;
           
       }
-    
-    
-   
-    
+    public Usuario buscarUsuarioPorId(int id)throws SQLException{
+        String sql = "SELECT * FROM usuarios WHERE id=? ";
+        
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Usuario usuario =  null;
+        
+        try{
+            pstm = connection.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+            
+            if(rs.next()){
+                  usuario = new Usuario();
+                  usuario.setId(rs.getInt("id"));
+                  usuario.setNome(rs.getString("nome"));
+                  usuario.setEmail(rs.getString("email"));
+                  usuario.setTelefone(rs.getString("telefone"));
+                  usuario.setTipo_usuario(rs.getString("tipo_usuario"));
+            }
+            
+        }catch(SQLException e){
+              System.out.println("Erro ao listar usuarios: "+ e.getMessage());
+          }finally{
+              if(rs != null) rs.close();
+              if(pstm != null) pstm.close();
+          }
+          return usuario;
+    }
 }

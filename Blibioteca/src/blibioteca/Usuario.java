@@ -8,6 +8,8 @@ public class Usuario {
     private String email;
     private String telefone;
     private String tipo_usuario;
+    
+    
 
     public Usuario(int id, String nome, String email, String telefone, String tipo_usuario) {
         this.id = id;
@@ -16,6 +18,11 @@ public class Usuario {
         this.telefone = telefone;
         this.tipo_usuario = tipo_usuario;
     }
+
+    public Usuario() {
+    }
+    
+    
 
     public int getId() {
         return id;

@@ -9,9 +9,10 @@ public class Blibioteca {
 
     public static void main(String[] args) throws SQLException {
        
-        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-        
+        //ArrayList<Usuario> listaUsuarios = new ArrayList<>(); 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
+        
+        //Usuario usuario = new Usuario();
         
         /*Usuario usuario1 = new Usuario(0,"klaudia","klaudia.com","61-8888","mentira");
         Usuario usuario2 = new Usuario(0,"Irinel","Irinel.com","61-8888","verdade");
@@ -32,7 +33,50 @@ public class Blibioteca {
              usuarioDAO.criaUsuario(l);
              }*/
         
+       /* try {
+         
+        List<Usuario> usuarios = usuarioDAO.listarUsuario();
+        if(usuarios.isEmpty()){
+            System.out.println("Ninguem Cadastrado");
+        }else{
+           for(Usuario usuario:usuarios){
+            System.out.println("ID "+ usuario.getId());
+            System.out.println("Nome "+ usuario.getNome());
+            System.out.println("Email "+ usuario.getEmail());
+            System.out.println("Telefone "+ usuario.getTelefone());
+            System.out.println("Tipo  "+ usuario.getTipo_usuario());
+            System.out.println("----------------------------------");
+        }
+        }
+            
+        }
+          catch (SQLException e){
+              System.out.println("Erro "+ e.getMessage());
+          }
+        
+       */ 
        
+        try {
+        int idBuscado = 7;
+        Usuario usuario = usuarioDAO.buscarUsuarioPorId(idBuscado);
+        
+        if(usuario != null){
+            System.out.println("Encontrei");
+            System.out.println("ID "+ usuario.getId());
+            System.out.println("Nome "+ usuario.getNome());
+            System.out.println("Email "+ usuario.getEmail());
+            System.out.println("Telefone "+ usuario.getTelefone());
+            System.out.println("Tipo  "+ usuario.getTipo_usuario());
+            System.out.println("----------------------------------");
+        
+        }
+        else{
+            System.out.println("Usuario com ID "+idBuscado+" nao encontrado");
+        }     
+        }
+          catch (SQLException e){
+              System.out.println("Erro "+ e.getMessage());
+          }
         
     }
     
