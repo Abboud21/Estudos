@@ -1,0 +1,383 @@
+programa {
+  funcao inicio() {
+
+    inteiro idDoMedico[10],idDaConsulta[10],totalConsulta = 0
+    cadeia nomeMedicos[10],especialidadeMedico[10],emailMedico[10],pacienteConsulta[10],confirmacao,telefoneMedico[10]
+    inteiro totalPacientes = 0 , opcao, numeroDePacientes = 0, totalMedicos = 0
+    inteiro idDoPaciente[10] , idadeDoPaciente[10]
+    cadeia  nomePacientes[10], emailDoPaciente[10] ,dataConsulta[10],medicoConsulta[10],horaConsulta[10],telefoneDoPaciente[10]
+    
+    faca{
+
+         
+         escreva(">>> Bem-vindo ao Sistema de Atendimento! <<<\n")
+            escreva("Qual das opcões você deseja?\n")
+            escreva("1 - Cadastro de pacientes.\n")
+            escreva("2 - Cadastro de médicos.\n")
+            escreva("3 - Editar cadastro de pacientes.\n")
+            escreva("4 - Editar cadastro de médicos.\n")
+            escreva("5 - Agendamento de consultas.\n")
+            escreva("6 - Historicos de médico dos pacientes.\n")
+            escreva("7 - Visualizar consultas agendadas.\n")
+            escreva("8 - Cancelar consultas agendadas.\n")
+            escreva("0 - Sair.\n")
+            leia(opcao)
+
+      escolha(opcao){
+
+                caso 1:
+
+                    escreva(">>Cadastro de Pacientes<<\n")
+                    
+                    faca {
+                        escreva("Digite o número de pacientes (entre 1 até 10): ")
+                        leia(numeroDePacientes)
+
+                        se (numeroDePacientes < 1 ou numeroDePacientes > 10){
+                            escreva("Número de pacientes inválido. Por favor, insira um número entre 1 e 10.\n")
+                        } senao {
+                            escreva("Número de pacientes cadastrado com sucesso: ",numeroDePacientes)
+                        }
+                         } enquanto (numeroDePacientes < 1 ou numeroDePacientes > 10)
+
+                      para(inteiro i = 0; i < numeroDePacientes; i++) {
+                        idDoPaciente[i] = i + 1   // Atribui um ID único para cada paciente
+                        escreva("\nid do paciente " , (i + 1) , " : " , (idDoPaciente[i]) , "•")
+
+                        escreva("\nDigite o nome do paciente " , (i + 1) , "• :")
+                        leia(nomePacientes[i])
+
+                        escreva("\nDigite a idade do paciente " , (i + 1) , "• :")
+                        leia(idadeDoPaciente[i])
+
+                        escreva("\nDigite o email do paciente " , (i + 1) , "• :")
+                        leia(emailDoPaciente[i])
+
+                        escreva("\nDigite o telefone do paciente " , (i + 1) , "• :")
+                        leia(telefoneDoPaciente[i])
+
+                        totalPacientes += 1 // Incrementa o total de pacientes cadastrados
+                    }
+
+                    para(inteiro i = 0; i < numeroDePacientes; i++) {
+                        escreva("\n• Paciente: " , nomePacientes[i] , " | Idade: " , idadeDoPaciente[i] , " | Email: " , emailDoPaciente[i] , " | Telefone: " , telefoneDoPaciente[i] , " cadastrado com sucesso\n!")
+                    }
+
+                    limpa()
+
+                    pare
+
+                caso 2:
+
+                    escreva("\n>>Cadastro de Médicos<<\n")
+                    inteiro numeroDeMedicos = 0
+                    faca {
+                        escreva("Digite o número de médicos (entre 1 até 10): ")
+                        leia(numeroDeMedicos)
+
+                        se (numeroDeMedicos < 1 ou numeroDeMedicos > 10) {
+                            escreva("\nNúmero de médicos inválido. Por favor, insira um número entre 1 e 10.\n")
+                        } senao {
+                            escreva("\nNúmero de médicos cadastrado com sucesso: " , numeroDeMedicos)
+                        }
+                    } enquanto (numeroDeMedicos < 1 ou numeroDeMedicos > 10)
+
+
+                    para (inteiro i = 0; i < numeroDeMedicos; i++) {
+                        idDoMedico[i] = i + 1 // Atribui um ID único para cada médico
+                        escreva("\nid do médico " , (i + 1) , " : " , (idDoMedico[i]) , "•")
+
+                        escreva("\nDigite o nome do médico " + (i + 1) + "• :")
+                        leia(nomeMedicos[i])
+
+                        escreva("\nDigite a especialidade do médico " + (i + 1) + "• :")
+                        leia(especialidadeMedico[i])
+
+                        escreva("\nDigite o email do médico " + (i + 1) + "• :")
+                        leia(emailMedico[i])
+
+                        escreva("\nDigite o telefone do médico " + (i + 1) + "• :")
+                        leia(telefoneMedico[i])
+
+                        totalMedicos += 1 // Incrementa o total de médicos cadastrados
+                    }
+
+                    para (inteiro i = 0; i < numeroDeMedicos; i++) {
+                        escreva("\n• Médico: " , nomeMedicos[i] , " | Especialidade: " , especialidadeMedico[i] , " | Email: " , emailMedico[i] , " | Telefone: " , telefoneMedico[i] , " cadastrado com sucesso!\n")
+                    }
+
+                    limpa()
+
+                pare
+
+                caso 3:
+
+                escreva("\n>>Edição de Cadastro de Pacientes<<\n")
+                    se (totalPacientes == 0) {
+                        escreva("Nenhum paciente cadastrado até o momento.\n")
+                    } senao {
+                        escreva("Digite o ID do paciente que deseja editar:")
+                        inteiro idPacienteEditar
+                        leia(idPacienteEditar)
+
+                        logico pacienteEncontrado = falso
+                        para (inteiro i = 0; i < totalPacientes; i++) {
+                            se (idDoPaciente[i] == idPacienteEditar) {
+                                pacienteEncontrado = verdadeiro
+                                escreva("\nEditando cadastro do paciente: " + nomePacientes[i])
+
+                                escreva("\nDigite o novo nome do paciente:")
+                                leia(nomePacientes[i])
+
+                                escreva("\nDigite a nova idade do paciente:")
+                                leia(idadeDoPaciente[i])
+
+                                escreva("\nDigite o novo email do paciente:")
+                                leia(emailDoPaciente[i])
+
+                                escreva("\nDigite o novo telefone do paciente:")
+                                leia(telefoneDoPaciente[i])
+
+                                escreva("\nCadastro atualizado com sucesso!\n")
+                                pare
+                            }
+                        }
+                        se (pacienteEncontrado == falso) {
+                            escreva("ID do paciente não encontrado.")
+                        }
+                    }
+
+                limpa()
+                pare
+
+                caso 4:
+
+                escreva("\n>>Edição de Cadastro de Médicos<<\n")
+                    se (totalMedicos == 0) {
+                        escreva("Nenhum médico cadastrado até o momento.\n")
+                    } senao {
+                        escreva("\nDigite o ID do médico que deseja editar:")
+                        inteiro idMedicoEditar
+                        leia(idMedicoEditar)
+
+                        logico medicoEncontrado = falso
+                        para (inteiro i = 0; i < totalMedicos; i++) {
+                            se (idDoMedico[i] == idMedicoEditar) {
+                                medicoEncontrado = verdadeiro
+                                escreva("\nEditando cadastro do médico: " + nomeMedicos[i])
+
+                                escreva("\n\nDigite o novo nome do médico:")
+                                leia(nomeMedicos[i])
+
+                                escreva("\nDigite a nova especialidade do médico:")
+                                leia(especialidadeMedico[i])
+
+                                escreva("\nDigite o novo email do médico:")
+                                leia(emailMedico[i])
+
+                                escreva("\nDigite o novo telefone do médico:")
+                                leia(telefoneMedico[i])
+
+                                escreva("\nCadastro atualizado com sucesso!\n")
+                                pare
+                            }
+                        }
+                        se (medicoEncontrado == falso) {
+                            escreva("\nID do médico não encontrado.")
+                        }
+                    }
+
+
+                limpa()
+                pare
+
+                caso 5:
+
+
+                    escreva(">>Agendamento de Consultas<<\n")
+                    inteiro numeroDeConsultas = 0
+                    faca {
+                        escreva("Digite o número de consultas (entre 1 até 10): ")
+                        leia(numeroDeConsultas)
+
+                        se (numeroDeConsultas < 1 ou numeroDeConsultas > 10) {
+                            escreva("\nNúmero de consultas inválido. Por favor, insira um número entre 1 e 10.\n")
+                        } senao {
+                            escreva("\nNúmero de consultas cadastrado com sucesso: " , numeroDeConsultas)
+                        }
+                    } enquanto (numeroDeConsultas < 1 ou numeroDeConsultas > 10)
+
+                    para (inteiro i = 0; i < numeroDeConsultas; i++) {
+                        idDaConsulta[i] = i + 1 // Atribui um ID único para cada consulta
+                        escreva("\nid da consulta :" , (idDaConsulta[i]) , "•")
+
+                        faca {
+
+                            //Verificar o paciente
+                            inteiro idpacientedigitado = 0
+                            logico pacienteEncontrado = falso
+
+                            faca {
+                                escreva("\nDigite o ID do paciente para a consulta " , (i + 1) , "• :")
+                                leia(idpacientedigitado)
+
+                                para (inteiro j = 0; j < totalPacientes; j++) {
+                                    se (idpacientedigitado == idDoPaciente[j]) {
+                                        pacienteConsulta[i] = nomePacientes[j]
+                                        pacienteEncontrado = verdadeiro
+                                        pare
+                                    }
+                                }
+                                se (pacienteEncontrado == falso) {
+                                    escreva("\nID do paciente inválido. Por favor, insira um ID válido.")
+                                }
+                            } enquanto (pacienteEncontrado != verdadeiro)
+
+                            //Verificar o médico
+                            inteiro idmedicodigitado = 0
+                            logico medicoEncontrado = falso
+                            faca {
+                                escreva("\nDigite o ID do médico para a consulta " , (i + 1) , "• :")
+                                leia(idmedicodigitado)
+
+                                para (inteiro j = 0; j < totalMedicos; j++) {
+                                    se (idmedicodigitado == idDoMedico[j]) {
+                                        medicoConsulta[i] = nomeMedicos[j]
+                                        medicoEncontrado = verdadeiro
+                                        pare
+                                    }
+                                }
+                                se (medicoEncontrado == falso) {
+                                    escreva("\nID do médico inválido. Por favor, insira um ID válido.")
+                                }
+                            } enquanto (medicoEncontrado != verdadeiro)
+
+                            //Data e hora da consulta
+                            escreva("\nDigite a data da consulta " , (i + 1) , "• (formato: dd/mm/aaaa):")
+                            leia(dataConsulta[i])
+
+                            escreva("\nDigite a hora da consulta " , (i + 1) , "• (formato: hh:mm):")
+                            leia(horaConsulta[i])
+
+                            //confirmação da consulta
+                            escreva("\nConsulta agendada com sucesso!\n")
+                            escreva("Detalhes da consulta " , (i + 1) , "• :")
+                            escreva("\nID da consulta: " , idDaConsulta[i])
+                            escreva("\nPaciente: " , pacienteConsulta[i])
+                            escreva("\nMédico: " , medicoConsulta[i])
+                            escreva("\nData: " , dataConsulta[i])
+                            escreva("\nHora: " , horaConsulta[i])
+
+                            escreva("\nconfirmação da consulta (S/N):")
+                            leia(confirmacao)
+                        }enquanto (confirmacao == "N" ou confirmacao == "n")
+
+                        totalConsulta = i + 1 // Incrementa o total de consultas agendadas
+                        escreva("\nConsulta " , (i + 1) , "• agendada com sucesso!\n")
+                    }
+
+                    limpa()
+
+                pare
+
+                caso 6:
+
+                limpa()
+
+                escreva("\n>>Histórico médico dos Pacientes<<\n")
+
+                    se (totalPacientes == 0) {
+                        escreva("Nenhum paciente cadastrado até o momento.\n\n\n\n")
+                    } senao {
+                        para (inteiro i = 0; i < totalPacientes; i++) {
+                            escreva("\nID do paciente: " , idDoPaciente[i])
+                            escreva("\nNome do paciente: " , nomePacientes[i])
+                            escreva("\nIdade: " , idadeDoPaciente[i])
+                            escreva("\nEmail: " , emailDoPaciente[i])
+                            escreva("\nTelefone: " , telefoneDoPaciente[i])
+                            escreva("\n-----------------------------\n")
+                        }
+                    }
+
+                
+                pare
+                
+
+                caso 7:
+
+                 escreva("\n>>Visualização de Consultas Agendadas<<\n")
+                    se (totalConsulta == 0){
+                        escreva("Nenhuma consulta agendada até o momento.\n")
+                    } senao {
+                        escreva("Total de consultas agendadas: " , totalConsulta , "\n")
+                        para (inteiro i = 0; i < totalConsulta; i++) {
+                            escreva("\nID da consulta: " , idDaConsulta[i])
+                            escreva("\nPaciente: " , pacienteConsulta[i])
+                            escreva("\nMédico: " , medicoConsulta[i])
+                            escreva("\nData: " , dataConsulta[i])
+                            escreva("\nHora: " , horaConsulta[i])
+                            escreva("\n-----------------------------")
+                        }
+                    }
+                    pare
+
+                    caso 8:
+
+                    escreva("\n>>Cancelamento de Consultas Agendadas<<\n")
+                    se (totalConsulta == 0) {
+                        escreva("Nenhuma consulta agendada para cancelar.\n")
+                    } senao {
+                        escreva("\nDigite o ID da consulta que deseja cancelar:")
+                        inteiro idConsultaCancelar
+                        leia(idConsultaCancelar)
+
+                        logico consultaEncontrada = falso
+                        para (inteiro i = 0; i < totalConsulta; i++) {
+                            se (idDaConsulta[i] == idConsultaCancelar) {
+                                consultaEncontrada = verdadeiro
+                                escreva("\nConsulta cancelada com sucesso!")
+                                escreva("\nDetalhes da consulta cancelada:")
+                                escreva("\nID da consulta: " + idDaConsulta[i])
+                                escreva("\nPaciente: " + pacienteConsulta[i])
+                                escreva("\nMédico: " + medicoConsulta[i])
+                                escreva("VData: " + dataConsulta[i])
+                                escreva("VHora: " + horaConsulta[i])
+
+                                // Remover a consulta do array
+                                para (inteiro j = i; j < totalConsulta - 1; j++) {
+                                    idDaConsulta[j] = idDaConsulta[j + 1]
+                                    pacienteConsulta[j] = pacienteConsulta[j + 1]
+                                    medicoConsulta[j] = medicoConsulta[j + 1]
+                                    dataConsulta[j] = dataConsulta[j + 1]
+                                    horaConsulta[j] = horaConsulta[j + 1]
+                                }
+                                totalConsulta-- // Decrementa o total de consultas
+                                pare
+                            }
+                        }
+                        se (consultaEncontrada == falso) {
+                            escreva("\nID da consulta não encontrado.")
+                        }
+                    }
+
+
+                    limpa()
+                    pare
+
+                    caso 0:
+
+                    limpa()
+
+                    escreva("\nSaindo do sistema...")
+                    pare
+
+          }
+
+        }enquanto(opcao > 0)
+
+        escreva("\nObrigado por utilizar o Sistema de Atendimento!")
+        escreva("\nSistema encerrado.")
+
+    
+  }
+}
